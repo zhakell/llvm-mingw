@@ -190,7 +190,7 @@ jobs:
       - name: Build
         run: |
           sudo apt-get update && sudo apt-get install autoconf-archive ninja-build
-          LLVM_CMAKEFLAGS="--debug-find" ./build-cross-tools.sh /opt/llvm-mingw $(pwd)/install/llvm-mingw-${{matrix.arch}} ${{matrix.arch}}
+          ./build-cross-tools.sh /opt/llvm-mingw $(pwd)/install/llvm-mingw-${{matrix.arch}} ${{matrix.arch}}
           cd install
           zip -9rq ../llvm-mingw-${{matrix.arch}}.zip llvm-mingw-${{matrix.arch}}
       - uses: actions/upload-artifact@v2
